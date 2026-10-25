@@ -12,9 +12,36 @@
     font-family: system-ui, sans-serif;
   }
   h1 { font-size: clamp(48px, 12vw, 140px); margin: 0; }
+  .lang { position: fixed; top: 16px; right: 16px; display: flex; gap: 8px; }
+  .lang button {
+    background: none; color: #aaa; border: 1px solid #444; border-radius: 6px;
+    padding: 6px 12px; font: inherit; cursor: pointer;
+  }
+  .lang button.on { color: #fff; border-color: #fff; }
 </style>
 </head>
 <body>
-  <h1>Нікіта</h1>
+  <div class="lang">
+    <button data-lang="uk">UA</button>
+    <button data-lang="en">EN</button>
+  </div>
+  <h1 data-t="name"></h1>
+<script>
+  const T = {
+    uk: { title: "Нікіта", name: "Нікіта" },
+    en: { title: "Nikita", name: "Nikita" },
+  };
+  function setLang(l) {
+    document.documentElement.lang = l;
+    document.title = T[l].title;
+    document.querySelectorAll("[data-t]").forEach(e => e.textContent = T[l][e.dataset.t]);
+    document.querySelectorAll(".lang button").forEach(b => b.classList.toggle("on", b.dataset.lang === l));
+    try { localStorage.setItem("lang", l); } catch (e) {}
+  }
+  document.querySelectorAll(".lang button").forEach(b => b.onclick = () => setLang(b.dataset.lang));
+  let saved = null;
+  try { saved = localStorage.getItem("lang"); } catch (e) {}
+  setLang(T[saved] ? saved : (navigator.language.startsWith("uk") ? "uk" : "en"));
+</script>
 </body>
 </html>
