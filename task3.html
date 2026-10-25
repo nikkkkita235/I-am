@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Task 3</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  /* Histogram from DIVs */
+  .row { display: flex; align-items: center; margin: 6px 0; }
+  .row .name { width: 80px; }
+  .row .bar { height: 24px; color: #fff; font-size: 14px; line-height: 24px; padding-left: 6px; box-sizing: border-box; }
+
+  /* Drop cap */
+  p.dropcap::first-letter { float: left; font-size: 3.4em; line-height: 1; margin-right: 6px; color: #c0392b; font-weight: bold; }
+
+  /* Sea wave: letters shifted with relative positioning */
+  .wave { text-align: center; font-size: 36px; font-weight: bold; color: #1a6fb0; margin: 30px 0; }
+  .wave span { position: relative; }
+
+  /* Point graph y = x^2 */
+  .graph { position: relative; width: 300px; height: 300px; margin: 20px auto; background: #fff; border: 1px solid #ccc; }
+  .axis-x { position: absolute; left: 0; top: 280px; width: 300px; height: 1px; background: #000; }
+  .axis-y { position: absolute; left: 150px; top: 0; width: 1px; height: 300px; background: #000; }
+  .dot { position: absolute; width: 6px; height: 6px; border-radius: 50%; background: #d00; }
+  .label { position: absolute; font-size: 12px; }
+</style>
+</head>
+<body>
+<main>
+  <div class="lang"><button data-lang="uk">UA</button> <button data-lang="en">EN</button></div>
+
+  <table class="menu"><tr>
+    <td><a href="index.html"><span class="uk">Головна</span><span class="en">Home</span></a></td>
+    <td><a href="hobby.html"><span class="uk">Хобі</span><span class="en">Hobby</span></a></td>
+    <td><a href="links.html"><span class="uk">Посилання</span><span class="en">Links</span></a></td>
+    <td><a href="task3.html"><span class="uk">Завдання 3</span><span class="en">Task 3</span></a></td>
+  </tr></table>
+
+  <h2><span class="uk">Популярність браузерів</span><span class="en">Browser popularity</span></h2>
+  <div class="row"><div class="name">Chrome</div><div class="bar" style="width: 65%; background: #4285f4;">65%</div></div>
+  <div class="row"><div class="name">Safari</div><div class="bar" style="width: 18%; background: #999;">18%</div></div>
+  <div class="row"><div class="name">Edge</div><div class="bar" style="width: 6%; background: #0a7;">6%</div></div>
+  <div class="row"><div class="name">Firefox</div><div class="bar" style="width: 4%; background: #e66000;">4%</div></div>
+  <div class="row"><div class="name">Opera</div><div class="bar" style="width: 3%; background: #c00;">3%</div></div>
+
+  <h2><span class="uk">Буквиця</span><span class="en">Drop cap</span></h2>
+  <p class="dropcap uk">Інтернет — це всесвітня система об'єднаних комп'ютерних мереж. Веб-сторінки створюються мовою HTML, а їхній вигляд задається за допомогою CSS. Перша літера цього абзацу оформлена як буквиця через псевдоелемент first-letter.</p>
+  <p class="dropcap en">The Internet is a worldwide system of connected computer networks. Web pages are written in HTML and styled with CSS. The first letter of this paragraph is a drop cap made with the first-letter pseudo-element.</p>
+
+  <h2><span class="uk">Ефект морської хвилі</span><span class="en">Sea wave effect</span></h2>
+  <div class="wave">
+    <span style="top: 0px;">N</span><span style="top: -8px;">I</span><span style="top: -14px;">K</span><span style="top: -8px;">I</span><span style="top: 0px;">T</span><span style="top: 8px;">A</span>
+    <span style="top: 14px;">V</span><span style="top: 8px;">O</span><span style="top: 0px;">R</span><span style="top: -8px;">O</span><span style="top: -14px;">B</span><span style="top: -8px;">I</span><span style="top: 0px;">E</span><span style="top: 8px;">I</span>
+  </div>
+
+  <h2><span class="uk">Графік функції y = x²</span><span class="en">Graph of y = x²</span></h2>
+  <div class="graph">
+    <div class="axis-x"></div>
+    <div class="axis-y"></div>
+    <div class="label" style="left: 285px; top: 283px;">x</div>
+    <div class="label" style="left: 155px; top: 2px;">y</div>
+    <div class="label" style="left: 154px; top: 283px;">0</div>
+    <div class="dot" style="left: 27px;  top: 25px;"></div>
+    <div class="dot" style="left: 47px;  top: 102px;"></div>
+    <div class="dot" style="left: 67px;  top: 165px;"></div>
+    <div class="dot" style="left: 87px;  top: 214px;"></div>
+    <div class="dot" style="left: 107px; top: 249px;"></div>
+    <div class="dot" style="left: 127px; top: 270px;"></div>
+    <div class="dot" style="left: 147px; top: 277px;"></div>
+    <div class="dot" style="left: 167px; top: 270px;"></div>
+    <div class="dot" style="left: 187px; top: 249px;"></div>
+    <div class="dot" style="left: 207px; top: 214px;"></div>
+    <div class="dot" style="left: 227px; top: 165px;"></div>
+    <div class="dot" style="left: 247px; top: 102px;"></div>
+    <div class="dot" style="left: 267px; top: 25px;"></div>
+  </div>
+</main>
+<script src="lang.js"></script>
+</body>
+</html>

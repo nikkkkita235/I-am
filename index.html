@@ -3,45 +3,76 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Нікіта</title>
+<title>Vorobiei Nikita</title>
+<link rel="stylesheet" href="style.css">
 <style>
-  html, body { height: 100%; margin: 0; }
-  body {
-    display: flex; align-items: center; justify-content: center;
-    background: #111; color: #fff;
-    font-family: system-ui, sans-serif;
-  }
-  h1 { font-size: clamp(48px, 12vw, 140px); margin: 0; }
-  .lang { position: fixed; top: 16px; right: 16px; display: flex; gap: 8px; }
-  .lang button {
-    background: none; color: #aaa; border: 1px solid #444; border-radius: 6px;
-    padding: 6px 12px; font: inherit; cursor: pointer;
-  }
-  .lang button.on { color: #fff; border-color: #fff; }
+  .fio { font-size: 32px; font-weight: bold; text-align: center; }
+  .photo { text-align: center; }
+  .photo img { border: 3px solid #555; margin: 6px; }
 </style>
 </head>
 <body>
-  <div class="lang">
-    <button data-lang="uk">UA</button>
-    <button data-lang="en">EN</button>
+<main>
+  <div class="lang"><button data-lang="uk">UA</button> <button data-lang="en">EN</button></div>
+
+  <table class="menu"><tr>
+    <td><a href="index.html"><span class="uk">Головна</span><span class="en">Home</span></a></td>
+    <td><a href="hobby.html"><span class="uk">Хобі</span><span class="en">Hobby</span></a></td>
+    <td><a href="links.html"><span class="uk">Посилання</span><span class="en">Links</span></a></td>
+    <td><a href="task3.html"><span class="uk">Завдання 3</span><span class="en">Task 3</span></a></td>
+  </tr></table>
+
+  <!-- Task 1: name in different colors -->
+  <p class="fio">
+    <span style="color: #c0392b;">Vorobiei</span>
+    <span style="color: #27ae60;">Nikita</span>
+    <span style="color: #2e86c1;">Serhiyovich</span>
+  </p>
+
+  <!-- Task 1: rainbow phrase, each word in its color -->
+  <p style="text-align: center; font-size: 22px; font-weight: bold;">
+    <span class="uk">
+      <span style="color: red;">Червоний,</span>
+      <span style="color: orange;">помаранчевий,</span>
+      <span style="color: gold;">жовтий,</span>
+      <span style="color: green;">зелений,</span>
+      <span style="color: deepskyblue;">блакитний,</span>
+      <span style="color: blue;">синій,</span>
+      <span style="color: darkviolet;">фіолетовий</span>
+    </span>
+    <span class="en">
+      <span style="color: red;">Richard</span>
+      <span style="color: orange;">Of</span>
+      <span style="color: gold;">York</span>
+      <span style="color: green;">Gave</span>
+      <span style="color: deepskyblue;">Battle</span>
+      <span style="color: blue;">In</span>
+      <span style="color: darkviolet;">Vain</span>
+    </span>
+  </p>
+
+  <!-- Task 2: photo, width/height, link to full size -->
+  <div class="photo">
+    <a href="photo.svg" target="_blank"><img src="photo.svg" width="150" alt="Photo"></a>
+    <a href="photo.svg" target="_blank"><img src="photo.svg" width="100" height="100" alt="Photo"></a>
+    <a href="photo.svg" target="_blank"><img src="photo.svg" height="200" alt="Photo"></a>
+    <p><span class="uk">Натисніть на фото, щоб відкрити його в повному розмірі.</span><span class="en">Click a photo to open it full size.</span></p>
   </div>
-  <h1 data-t="name"></h1>
-<script>
-  const T = {
-    uk: { title: "Нікіта", name: "Нікіта" },
-    en: { title: "Nikita", name: "Nikita" },
-  };
-  function setLang(l) {
-    document.documentElement.lang = l;
-    document.title = T[l].title;
-    document.querySelectorAll("[data-t]").forEach(e => e.textContent = T[l][e.dataset.t]);
-    document.querySelectorAll(".lang button").forEach(b => b.classList.toggle("on", b.dataset.lang === l));
-    try { localStorage.setItem("lang", l); } catch (e) {}
-  }
-  document.querySelectorAll(".lang button").forEach(b => b.onclick = () => setLang(b.dataset.lang));
-  let saved = null;
-  try { saved = localStorage.getItem("lang"); } catch (e) {}
-  setLang(T[saved] ? saved : (navigator.language.startsWith("uk") ? "uk" : "en"));
-</script>
+
+  <!-- Task 2: links -->
+  <p style="text-align: center;">
+    <a href="hobby.html"><span class="uk">Моє хобі</span><span class="en">My hobby</span></a> |
+    <a href="links.html"><span class="uk">Улюблені сайти</span><span class="en">Favorite sites</span></a> |
+    <a href="https://DEPARTMENT-SITE" target="_blank"><span class="uk">Сайт відділу</span><span class="en">Department site</span></a>
+  </p>
+
+  <!-- Task 2: web informer (weather) -->
+  <h2><span class="uk">Погода</span><span class="en">Weather</span></h2>
+  <a class="weatherwidget-io" href="https://forecast7.com/uk/50d4530d52/kyiv/" data-label_1="KYIV" data-theme="original">Kyiv</a>
+  <script>
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+  </script>
+</main>
+<script src="lang.js"></script>
 </body>
 </html>
