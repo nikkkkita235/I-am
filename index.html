@@ -8,6 +8,7 @@
 <style>
   .fio { font-size: 32px; font-weight: bold; text-align: center; }
   .photo { text-align: center; }
+  .photo figure { display: inline-block; vertical-align: bottom; margin: 6px; font-size: 13px; }
   .photo img { border: 3px solid #555; margin: 6px; vertical-align: bottom; max-width: 100%; height: auto; }
 </style>
 </head>
@@ -15,7 +16,16 @@
 <main>
   <div class="lang"><button data-lang="uk">UA</button> <button data-lang="en">EN</button></div>
 
-  <table class="menu"></table>
+  <!-- Task 3.4: navigation menu as a table, :hover highlight in style.css -->
+  <table class="menu">
+    <tr>
+      <td><a href="index.html"><span class="uk">Головна</span><span class="en">Home</span></a></td>
+      <td><a href="hobby.html"><span class="uk">Моє хобі</span><span class="en">My hobby</span></a></td>
+      <td><a href="rainbow.html"><span class="uk">Веселка</span><span class="en">Rainbow</span></a></td>
+      <td><a href="links.html"><span class="uk">Посилання</span><span class="en">Links</span></a></td>
+      <td><a href="task3.html"><span class="uk">Завдання 3</span><span class="en">Task 3</span></a></td>
+    </tr>
+  </table>
 
   <!-- Task 1: name in different colors -->
   <p class="fio">
@@ -26,10 +36,18 @@
 
   <!-- Task 2: photo; normal 240x320, half 120x160, double 480x640; click opens full size -->
   <div class="photo">
-    <a href="photo.jpg" target="_blank"><img src="photo.jpg" width="240" height="320" alt="Photo"></a>
-    <a href="photo.jpg" target="_blank"><img src="photo.jpg" width="120" height="160" alt="Photo"></a>
-    <br>
-    <a href="photo.jpg" target="_blank"><img src="photo.jpg" width="480" height="640" alt="Photo"></a>
+    <figure>
+      <a href="photo.jpg" target="_blank"><img src="photo.jpg" width="240" height="320" alt="Моє фото"></a>
+      <figcaption><span class="uk">Моє фото (натисніть — відкриється в повному розмірі)</span><span class="en">My photo (click to open full size)</span></figcaption>
+    </figure>
+    <figure>
+      <a href="photo.jpg" target="_blank"><img src="photo.jpg" width="120" height="160" alt="Моє фото, зменшене в 2 рази"></a>
+      <figcaption><span class="uk">Зменшено в 2 рази (width/height)</span><span class="en">Half size (width/height)</span></figcaption>
+    </figure>
+    <figure>
+      <a href="photo.jpg" target="_blank"><img src="photo.jpg" width="480" height="640" alt="Моє фото, збільшене в 2 рази"></a>
+      <figcaption><span class="uk">Збільшено в 2 рази — видно втрату якості</span><span class="en">Double size — quality loss is visible</span></figcaption>
+    </figure>
     <p><span class="uk">Натисніть на фото, щоб відкрити його в повному розмірі.</span><span class="en">Click a photo to open it full size.</span></p>
   </div>
 
@@ -47,7 +65,6 @@
     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
   </script>
 </main>
-<script src="menu.js"></script>
 <script src="lang.js"></script>
 </body>
 </html>

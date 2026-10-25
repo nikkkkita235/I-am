@@ -3,7 +3,7 @@ html[lang="uk"] .en, html[lang="en"] .uk { display: none; }
 body {
   margin: 0; padding: 16px 16px 48px;
   font-family: system-ui, sans-serif; line-height: 1.5;
-  background: #fdf6e3 url("bg.svg"); color: #222;
+  background: #fdf6e3 url("bg.svg"); color: #222; /* Task 2.6: graphic background */
 }
 main { max-width: 860px; margin: 0 auto; background: rgba(255,255,255,.88); padding: 20px; border-radius: 10px; }
 
@@ -15,10 +15,12 @@ main { max-width: 860px; margin: 0 auto; background: rgba(255,255,255,.88); padd
 table.menu { border-collapse: collapse; margin: 0 auto 20px; }
 table.menu td { padding: 0; background: #6a6ad8; border-left: 8px solid #e6f03c; border-right: 2px solid #fff; }
 table.menu td:hover { background: #e05a5a; border-left-color: #111; }
+table.menu a:hover { color: #fff; background: none; }
 table.menu a { display: block; padding: 8px 14px; color: #fff; font: bold 20px Georgia, serif; text-decoration: none; white-space: nowrap; }
 @media (max-width: 640px) { table.menu a { font-size: 14px; padding: 6px 8px; } }
 
+/* Task 3.3: link highlight on hover, whole site */
 a { color: #06c; }
-a:hover { color: #d00; }
+a:hover { color: #d00; background: #ffef9e; }
 
 h1, h2 { text-align: center; }
