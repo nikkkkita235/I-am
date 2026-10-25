@@ -8,6 +8,9 @@
 <style>
   .fio { font-size: 32px; font-weight: bold; text-align: center; }
   .photo { text-align: center; }
+  .informer { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+  .informer div { background: linear-gradient(#4a90d9, #2c5f9e); color: #fff; border-radius: 10px; padding: 12px 20px; text-align: center; min-width: 140px; }
+  .informer b { font-size: 22px; }
   .photo figure { display: inline-block; vertical-align: bottom; margin: 6px; font-size: 13px; }
   .photo img { border: 3px solid #555; margin: 6px; vertical-align: bottom; max-width: 100%; height: auto; }
 </style>
@@ -60,9 +63,24 @@
 
   <!-- Task 2: web informer (weather) -->
   <h2><span class="uk">Погода</span><span class="en">Weather</span></h2>
-  <a class="weatherwidget-io" href="https://forecast7.com/uk/50d4530d52/kyiv/" data-label_1="КИЇВ" data-label_2="Погода" data-theme="original">КИЇВ Погода</a>
+  <!-- Informer: live weather (Open-Meteo) and exchange rates (National Bank of Ukraine) -->
+  <div class="informer">
+    <div><span class="uk">Київ, зараз</span><span class="en">Kyiv, now</span><br><b id="temp">…</b><br><small id="wind"></small></div>
+    <div><span class="uk">Курс НБУ</span><span class="en">NBU rate</span><br><b id="usd">…</b><br><b id="eur">…</b></div>
+  </div>
   <script>
-    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+    fetch("https://api.open-meteo.com/v1/forecast?latitude=50.45&longitude=30.52&current=temperature_2m,wind_speed_10m")
+      .then(r => r.json()).then(d => {
+        document.getElementById("temp").textContent = Math.round(d.current.temperature_2m) + " °C";
+        document.getElementById("wind").textContent = "💨 " + Math.round(d.current.wind_speed_10m) + " km/h";
+      });
+    fetch("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json")
+      .then(r => r.json()).then(list => {
+        for (const c of list) {
+          if (c.cc === "USD") document.getElementById("usd").textContent = "$ " + c.rate.toFixed(2) + " ₴";
+          if (c.cc === "EUR") document.getElementById("eur").textContent = "€ " + c.rate.toFixed(2) + " ₴";
+        }
+      });
   </script>
 </main>
 <script src="lang.js"></script>
