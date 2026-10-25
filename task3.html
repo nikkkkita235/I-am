@@ -7,9 +7,12 @@
 <link rel="stylesheet" href="style.css">
 <style>
   /* Histogram from DIVs */
-  .row { display: flex; align-items: center; margin: 6px 0; }
-  .row .name { width: 80px; }
-  .row .bar { height: 24px; color: #fff; font-size: 14px; line-height: 24px; padding-left: 6px; box-sizing: border-box; }
+  .year { display: flex; align-items: center; margin: 10px 0; }
+  .year .name { width: 50px; font-size: 13px; color: #555; }
+  .year .bars { flex: 1; border-left: 1px solid #999; }
+  .bar { height: 12px; margin: 2px 0; font-size: 10px; line-height: 12px; color: #fff; padding-left: 4px; box-sizing: border-box; }
+  .chrome { background: #1e9e78; } .firefox { background: #e06400; } .opera { background: #1f7ac4; } .other { background: #000; }
+  .legend span { display: inline-block; width: 12px; height: 12px; margin: 0 4px 0 12px; vertical-align: middle; }
 
   /* Drop cap */
   p.dropcap::first-letter { float: left; font-size: 3.4em; line-height: 1; margin-right: 6px; color: #c0392b; font-weight: bold; }
@@ -19,9 +22,8 @@
   .wave span { position: relative; }
 
   /* Point graph y = x^2 */
-  .graph { position: relative; width: 300px; height: 300px; margin: 20px auto; background: #fff; border: 1px solid #ccc; }
-  .axis-x { position: absolute; left: 0; top: 280px; width: 300px; height: 1px; background: #000; }
-  .axis-y { position: absolute; left: 150px; top: 0; width: 1px; height: 300px; background: #000; }
+  .graph { position: relative; width: 300px; height: 300px; margin: 20px auto; }
+  .graph img { position: absolute; left: 0; top: 0; }
   .dot { position: absolute; width: 6px; height: 6px; border-radius: 50%; background: #d00; }
   .label { position: absolute; font-size: 12px; }
 </style>
@@ -30,19 +32,41 @@
 <main>
   <div class="lang"><button data-lang="uk">UA</button> <button data-lang="en">EN</button></div>
 
-  <table class="menu"><tr>
-    <td><a href="index.html"><span class="uk">Головна</span><span class="en">Home</span></a></td>
-    <td><a href="hobby.html"><span class="uk">Хобі</span><span class="en">Hobby</span></a></td>
-    <td><a href="links.html"><span class="uk">Посилання</span><span class="en">Links</span></a></td>
-    <td><a href="task3.html"><span class="uk">Завдання 3</span><span class="en">Task 3</span></a></td>
-  </tr></table>
+  <table class="menu"></table>
 
-  <h2><span class="uk">Популярність браузерів</span><span class="en">Browser popularity</span></h2>
-  <div class="row"><div class="name">Chrome</div><div class="bar" style="width: 65%; background: #4285f4;">65%</div></div>
-  <div class="row"><div class="name">Safari</div><div class="bar" style="width: 18%; background: #999;">18%</div></div>
-  <div class="row"><div class="name">Edge</div><div class="bar" style="width: 6%; background: #0a7;">6%</div></div>
-  <div class="row"><div class="name">Firefox</div><div class="bar" style="width: 4%; background: #e66000;">4%</div></div>
-  <div class="row"><div class="name">Opera</div><div class="bar" style="width: 3%; background: #c00;">3%</div></div>
+  <h2><span class="uk">Діаграма популярності браузерів 2017–2021</span><span class="en">Browser popularity 2017–2021</span></h2>
+  <!-- Bar width = share in % -->
+  <div class="year"><div class="name">2017</div><div class="bars">
+    <div class="bar chrome" style="width: 64.7%;">64.7%</div>
+    <div class="bar firefox" style="width: 12.1%;">12.1%</div>
+    <div class="bar opera" style="width: 2.2%;"></div>
+    <div class="bar other" style="width: 21%;">21%</div>
+  </div></div>
+  <div class="year"><div class="name">2018</div><div class="bars">
+    <div class="bar chrome" style="width: 70.9%;">70.9%</div>
+    <div class="bar firefox" style="width: 10%;">10%</div>
+    <div class="bar opera" style="width: 2.3%;"></div>
+    <div class="bar other" style="width: 16.8%;">16.8%</div>
+  </div></div>
+  <div class="year"><div class="name">2019</div><div class="bars">
+    <div class="bar chrome" style="width: 68.8%;">68.8%</div>
+    <div class="bar firefox" style="width: 9.4%;">9.4%</div>
+    <div class="bar opera" style="width: 2.4%;"></div>
+    <div class="bar other" style="width: 19.4%;">19.4%</div>
+  </div></div>
+  <div class="year"><div class="name">2020</div><div class="bars">
+    <div class="bar chrome" style="width: 66%;">66%</div>
+    <div class="bar firefox" style="width: 8.4%;">8.4%</div>
+    <div class="bar opera" style="width: 2.5%;"></div>
+    <div class="bar other" style="width: 23.1%;">23.1%</div>
+  </div></div>
+  <div class="year"><div class="name">2021</div><div class="bars">
+    <div class="bar chrome" style="width: 66.6%;">66.6%</div>
+    <div class="bar firefox" style="width: 8.5%;">8.5%</div>
+    <div class="bar opera" style="width: 2.5%;"></div>
+    <div class="bar other" style="width: 22.4%;">22.4%</div>
+  </div></div>
+  <p class="legend"><span class="chrome"></span>Chrome <span class="firefox"></span>Firefox <span class="opera"></span>Opera <span class="other"></span><b class="uk" style="font-weight: normal;">Інші</b><b class="en" style="font-weight: normal;">Other</b></p>
 
   <h2><span class="uk">Буквиця</span><span class="en">Drop cap</span></h2>
   <p class="dropcap uk">Всесвітня мережа Інтернет — це система об'єднаних комп'ютерних мереж. Веб-сторінки створюються мовою HTML, а їхній вигляд задається за допомогою CSS. Перша літера цього абзацу оформлена як буквиця через псевдоелемент first-letter.</p>
@@ -56,8 +80,8 @@
 
   <h2><span class="uk">Графік функції y = x²</span><span class="en">Graph of y = x²</span></h2>
   <div class="graph">
-    <div class="axis-x"></div>
-    <div class="axis-y"></div>
+    <!-- Image with the X and Y axes; points are placed over it -->
+    <img src="axes.svg" width="300" height="300" alt="Axes">
     <div class="label" style="left: 285px; top: 283px;">x</div>
     <div class="label" style="left: 155px; top: 2px;">y</div>
     <div class="label" style="left: 154px; top: 283px;">0</div>
@@ -76,6 +100,7 @@
     <div class="dot" style="left: 267px; top: 25px;"></div>
   </div>
 </main>
+<script src="menu.js"></script>
 <script src="lang.js"></script>
 </body>
 </html>

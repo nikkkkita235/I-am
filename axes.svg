@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300">
+  <rect width="300" height="300" fill="#fff"/>
+  <g stroke="#e3e3e3">
+    <path d="M30 0V300M70 0V300M110 0V300M190 0V300M230 0V300M270 0V300"/>
+    <path d="M0 28H300M0 84H300M0 140H300M0 196H300M0 252H300"/>
+  </g>
+  <g stroke="#000">
+    <path d="M0 280H300M150 0V300"/>
+  </g>
+</svg>

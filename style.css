@@ -11,12 +11,14 @@ main { max-width: 860px; margin: 0 auto; background: rgba(255,255,255,.88); padd
 .lang button { background: #fff; border: 1px solid #999; border-radius: 6px; padding: 4px 10px; cursor: pointer; }
 .lang button.on { background: #222; color: #fff; }
 
-/* Table menu with hover */
-table.menu { border-collapse: collapse; margin: 0 auto 20px; }
-table.menu td { border: 1px solid #555; padding: 0; }
-table.menu a { display: block; padding: 8px 16px; color: #222; text-decoration: none; }
-table.menu td:hover { background: #2a6; }
-table.menu td:hover a { color: #fff; }
+/* Vertical table menu, row highlight on hover */
+table.menu { border-collapse: collapse; margin: 0 auto 20px; min-width: 220px; }
+table.menu td { padding: 0; border-bottom: 2px solid #fff; }
+table.menu td.mark { width: 12px; background: #e6f03c; }
+table.menu tr { background: #6a6ad8; }
+table.menu tr:hover { background: #e05a5a; }
+table.menu tr:hover td.mark { background: #111; }
+table.menu a { display: block; padding: 8px 16px; color: #fff; font: bold 22px Georgia, serif; text-decoration: none; }
 
 a { color: #06c; }
 a:hover { color: #d00; }

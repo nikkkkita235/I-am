@@ -1,26 +1,21 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="uk">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vorobiei Nikita</title>
+<title>Моя перша сторінка</title>
 <link rel="stylesheet" href="style.css">
 <style>
   .fio { font-size: 32px; font-weight: bold; text-align: center; }
   .photo { text-align: center; }
-  .photo img { border: 3px solid #555; margin: 6px; }
+  .photo img { border: 3px solid #555; margin: 6px; vertical-align: bottom; max-width: 100%; height: auto; }
 </style>
 </head>
 <body>
 <main>
   <div class="lang"><button data-lang="uk">UA</button> <button data-lang="en">EN</button></div>
 
-  <table class="menu"><tr>
-    <td><a href="index.html"><span class="uk">Головна</span><span class="en">Home</span></a></td>
-    <td><a href="hobby.html"><span class="uk">Хобі</span><span class="en">Hobby</span></a></td>
-    <td><a href="links.html"><span class="uk">Посилання</span><span class="en">Links</span></a></td>
-    <td><a href="task3.html"><span class="uk">Завдання 3</span><span class="en">Task 3</span></a></td>
-  </tr></table>
+  <table class="menu"></table>
 
   <!-- Task 1: name in different colors -->
   <p class="fio">
@@ -29,33 +24,12 @@
     <span style="color: #2e86c1;">Serhiyovich</span>
   </p>
 
-  <!-- Task 1: rainbow phrase, each word in its color -->
-  <p style="text-align: center; font-size: 22px; font-weight: bold;">
-    <span class="uk">
-      <span style="color: red;">Червоний,</span>
-      <span style="color: orange;">помаранчевий,</span>
-      <span style="color: gold;">жовтий,</span>
-      <span style="color: green;">зелений,</span>
-      <span style="color: deepskyblue;">блакитний,</span>
-      <span style="color: blue;">синій,</span>
-      <span style="color: darkviolet;">фіолетовий</span>
-    </span>
-    <span class="en">
-      <span style="color: red;">Richard</span>
-      <span style="color: orange;">Of</span>
-      <span style="color: gold;">York</span>
-      <span style="color: green;">Gave</span>
-      <span style="color: deepskyblue;">Battle</span>
-      <span style="color: blue;">In</span>
-      <span style="color: darkviolet;">Vain</span>
-    </span>
-  </p>
-
-  <!-- Task 2: photo, width/height, link to full size -->
+  <!-- Task 2: photo; normal 240x320, half 120x160, double 480x640; click opens full size -->
   <div class="photo">
-    <a href="photo.jpg" target="_blank"><img src="photo.jpg" width="150" alt="Photo"></a>
-    <a href="photo.jpg" target="_blank"><img src="photo.jpg" width="100" height="100" alt="Photo"></a>
-    <a href="photo.jpg" target="_blank"><img src="photo.jpg" height="200" alt="Photo"></a>
+    <a href="photo.jpg" target="_blank"><img src="photo.jpg" width="240" height="320" alt="Photo"></a>
+    <a href="photo.jpg" target="_blank"><img src="photo.jpg" width="120" height="160" alt="Photo"></a>
+    <br>
+    <a href="photo.jpg" target="_blank"><img src="photo.jpg" width="480" height="640" alt="Photo"></a>
     <p><span class="uk">Натисніть на фото, щоб відкрити його в повному розмірі.</span><span class="en">Click a photo to open it full size.</span></p>
   </div>
 
@@ -63,7 +37,7 @@
   <p style="text-align: center;">
     <a href="hobby.html"><span class="uk">Моє хобі</span><span class="en">My hobby</span></a> |
     <a href="links.html"><span class="uk">Улюблені сайти</span><span class="en">Favorite sites</span></a> |
-    <a href="https://DEPARTMENT-SITE" target="_blank"><span class="uk">Сайт відділу</span><span class="en">Department site</span></a>
+    <a href="https://ivt.kpi.ua/" target="_blank"><span class="uk">Сайт відділу</span><span class="en">Department site</span></a>
   </p>
 
   <!-- Task 2: web informer (weather) -->
@@ -73,6 +47,7 @@
     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
   </script>
 </main>
+<script src="menu.js"></script>
 <script src="lang.js"></script>
 </body>
 </html>
